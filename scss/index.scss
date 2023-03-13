@@ -1,0 +1,14 @@
+// index css
+
+//$변수명 - 변수 선언 가능
+$color:blue;
+
+h1 {color: $color;}
+// p {color: $color;}
+.bg {
+    background-color: pink;
+      p {
+          color: $color;
+      }
+}
+
