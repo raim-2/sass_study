@@ -1,14 +1,49 @@
 // index css
 
 //$변수명 - 변수 선언 가능
-$color:blue;
+$txt_color:#fff;
+$bg_color : background-color; //보간법 사용해서 쓰기 #{$bg_color}
 
-h1 {color: $color;}
-// p {color: $color;}
+* {
+    padding:0;
+    margin:0;
+    border:0;
+    box-sizing: border-box
+}
+
+
+h1 {color: $txt_color}
+
 .bg {
-    background-color: pink;
+    #{$bg_color}: pink;
       p {
-          color: $color;
+          color: $txt_color
       }
 }
+
+#wrap {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    color: $txt_color;
+    // font-size: 0;
+
+    // font-size: 16px (body 기본 사이즈)
+    div:nth-child(2) {#{$bg_color} : pink; font-size: 20px}
+    div:nth-child(3) {#{$bg_color} : purple;font-size: 30px}
+}
+
+div:not(#wrap, .bg) {
+    // width: 33.33%;
+    width: calc(100%/3);
+    #{$bg_color} : blue;
+    height: 300px;
+    text-align: center;
+    padding: 100px 0;
+    float: left;
+
+    // display: inline-block;
+    // font-size: 14px
+}
+
 
