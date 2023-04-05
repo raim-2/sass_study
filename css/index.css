@@ -15,6 +15,7 @@ h1 {
 
 div.bg {
   background-color: pink;
+  background-image: url("/images/main.jpg");
 }
 div.bg p {
   color: #fff;
@@ -43,6 +44,43 @@ div:not(#wrap, .bg) {
   text-align: center;
   padding: 100px 0;
   float: left;
+}
+
+ul li {
+  background-color: black;
+  border: 1px solid #ddd;
+}
+ul li:first-child {
+  background-color: pink;
+}
+ul li:nth-child(2) {
+  background-color: green;
+}
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(44, 160, 104);
+  display: inline-block;
+}
+
+ul li a {
+  display: block;
+  color: #fff;
+}
+ul li a p {
+  font-family: Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.fs-small {
+  font-size: 12px;
+}
+.fs-medium {
+  font-size: 14px;
+}
+.fs-large {
+  font-size: 16px;
 }
 
 /*# sourceMappingURL=index.css.map */

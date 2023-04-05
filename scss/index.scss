@@ -4,6 +4,8 @@
 $txt_color:#fff;
 $bg_color : background-color; //보간법 사용해서 쓰기 #{$bg_color}
 $font_size : 18px; 
+$name : "main";
+$my_border :  1px solid #ddd;
 
 
 * {
@@ -31,11 +33,14 @@ h1 {
     
 }
 
+// $txt_color: yellow; 재할당시 이전 값은 변화 x, 재할당 후 값만 변화
 div.bg {
     #{$bg_color}: pink; 
+    background-image: url("/images/#{$name}.jpg");
+
       p {
           color: $txt_color;
-          font-size: $font_size;
+          font-size: $font-size; //$font_size와 $font-size는 동일하게 취급(-과 _을 같게 본다)
         //   font-size: $my_size; //에러 발생
       }
 }
@@ -66,3 +71,73 @@ div:not(#wrap, .bg) {
 }
 
 
+//중첩 {}대괄호 안에 중첩하고 싶은 자식 선택자를 넣어 사용한다.
+
+// ul{
+//     li {
+//         #{$bg_color} : black;
+//         border: $my_border;
+//         a {
+//             display: block;
+//             color: $txt_color;
+//             p {
+//                 font-size: $font_size;
+//             }
+//         }
+//     }
+// }
+
+//속성을 중첩하여 사용할수도 있다.
+
+
+ul {
+    li {
+        #{$bg_color}: black;
+        border: $my_border;
+
+        //&을 사용하면 상위 부모 선택자를 참조해 치환할 수 있다.
+        &:first-child {
+            #{$bg_color}: pink;
+        }
+        &:nth-child(2) {
+            #{$bg_color}: green;
+        }
+
+        //@at-root는 중첩을 사용하다, 독립된 선택자 사용하고 싶을 때 사용
+        @at-root .box {
+            width: 100px;
+            height: 100px;
+            #{$bg_color}: rgb(44, 160, 104);
+            display: inline-block;
+        }
+
+        a {
+            display: block;
+            color: $txt_color;
+
+            p {
+                font: {
+                    family: Helvetica, sans-serif;
+                    size: 18px;
+                    weight: bold;
+                }
+            }
+        }
+    }
+}
+
+
+// & 부모 선택자 참조 치환 응용
+.fs {
+    &-small {
+        font-size: 12px;
+    }
+
+    &-medium {
+        font-size: 14px;
+    }
+
+    &-large {
+        font-size: 16px;
+    }
+}
