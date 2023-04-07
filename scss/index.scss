@@ -57,7 +57,7 @@ div.bg {
     div:nth-child(3) {#{$bg_color} : purple;font-size: 30px}
 }
 
-div:not(#wrap, .bg) {
+div:not(#wrap, .bg, .card, .card__content, .card__contetn--link) {
     // width: 33.33%;
     width: calc(100%/3);
     #{$bg_color} : blue;
@@ -141,3 +141,22 @@ ul {
         font-size: 16px;
     }
 }
+
+
+
+ /* BEM 사용하기 */
+.card {   /* Block */
+  background-color: #fff;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  &__content {   /* Element */
+    padding: 10px;
+    &--link {    /* Modifier */
+      color: #007bff;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline
+      }
+    }
+  }
+}   

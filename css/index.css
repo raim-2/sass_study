@@ -37,7 +37,7 @@ div.bg p {
   font-size: 30px;
 }
 
-div:not(#wrap, .bg) {
+div:not(#wrap, .bg, .card, .card__content, .card__contetn--link) {
   width: 33.3333333333%;
   background-color: blue;
   height: 300px;
@@ -81,6 +81,23 @@ ul li a p {
 }
 .fs-large {
   font-size: 16px;
+}
+
+/* BEM 사용하기 */
+.card { /* Block */
+  background-color: #fff;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+}
+.card__content { /* Element */
+  padding: 10px;
+}
+.card__content--link { /* Modifier */
+  color: #007bff;
+  text-decoration: none;
+}
+.card__content--link:hover {
+  text-decoration: underline;
 }
 
 /*# sourceMappingURL=index.css.map */
